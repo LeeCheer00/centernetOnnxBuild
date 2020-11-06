@@ -298,7 +298,7 @@ int main(int argc, char** argv)
 
 
     // if (!onnxToTRTModel("batch-1.onnx", 1, trtModelStream))
-    if (onnxToTRTModel("centernet_mobilenetv2_10_objdet.onnx", 1, trtModelStream))
+    if (onnxToTRTModel("centernet_mobilenetv2_10_objdet.onnx", batchsize, trtModelStream))
         gLogInfo << "convert sucessed.\n";
     else 
         gLogInfo << "can't parse!";

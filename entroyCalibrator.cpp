@@ -59,12 +59,12 @@ namespace nvinfer1
         {
             auto img = cv::imread(imgPaths[j]);
             auto inputData = prepareImage(img);
-            if (inputData.size() != inputCount)
+            if (inputData.size() != inputCount / batchSize) // batch size = 1, inputData.size() = inputCount, Now bs = 10
             {
                 std::cout << "InputSize error." << std::endl;
                 return false;
             }
-            assert(inputData.size() == inputCount);
+            assert(inputData.size() == inputCount / batchSize);
             memcpy(ptr,inputData.data(),inputData.size()*sizeof(float));
 
             ptr += inputData.size();
